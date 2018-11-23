@@ -64,6 +64,7 @@
             this.Button_regisztralas.TabIndex = 3;
             this.Button_regisztralas.Text = "Regisztrálás";
             this.Button_regisztralas.UseVisualStyleBackColor = true;
+            this.Button_regisztralas.Click += new System.EventHandler(this.Button_regisztralas_Click);
             // 
             // Form_adatbazis
             // 
