@@ -48,5 +48,33 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 int erintettSorok = command.ExecuteNonQuery();
             }
         }
+        private void Button_torles_Click(object sender, EventArgs e)
+        {
+            string nev = TextBox_nev.Text;
+            using (var conn = new MySqlConnection("Server=localhost;Database=regisztracio;Uid=root;Pwd=;"))
+            {
+                conn.Open();
+                // TÖRLÉS - HIBAKEZELÉS
+                var Van_e_felhasznalo = conn.CreateCommand();
+                Van_e_felhasznalo.CommandText = "SELECT COUNT(*) FROM felhasznalo WHERE felhasznalo_nev = @nev";
+                Van_e_felhasznalo.Parameters.AddWithValue("@nev", nev);
+                var darab = (long)Van_e_felhasznalo.ExecuteScalar();
+                if (darab == 0)
+                {
+                    MessageBox.Show("A felhasználó nem létezik! Nem tudok törölni!");
+                    return;
+                }
+                else
+                {
+                    var torles = conn.CreateCommand();
+                    torles.CommandText = "DELETE FROM felhasznalo WHERE felhasznalo_nev = @nev";
+                    torles.Parameters.AddWithValue("@nev", nev);
+                    int erintettSorok = torles.ExecuteNonQuery();
+                    MessageBox.Show("2!");
+                    return;
+                }
+                // --------------------
+            }
+        }
     }
 }

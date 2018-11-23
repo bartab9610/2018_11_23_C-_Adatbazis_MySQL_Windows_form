@@ -32,6 +32,7 @@
             this.TextBox_jelszo = new System.Windows.Forms.TextBox();
             this.DateTimePicker_szul_ido = new System.Windows.Forms.DateTimePicker();
             this.Button_regisztralas = new System.Windows.Forms.Button();
+            this.Button_torles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TextBox_nev
@@ -58,7 +59,7 @@
             // 
             // Button_regisztralas
             // 
-            this.Button_regisztralas.Location = new System.Drawing.Point(98, 139);
+            this.Button_regisztralas.Location = new System.Drawing.Point(36, 135);
             this.Button_regisztralas.Name = "Button_regisztralas";
             this.Button_regisztralas.Size = new System.Drawing.Size(75, 23);
             this.Button_regisztralas.TabIndex = 3;
@@ -66,11 +67,22 @@
             this.Button_regisztralas.UseVisualStyleBackColor = true;
             this.Button_regisztralas.Click += new System.EventHandler(this.Button_regisztralas_Click);
             // 
+            // Button_torles
+            // 
+            this.Button_torles.Location = new System.Drawing.Point(173, 135);
+            this.Button_torles.Name = "Button_torles";
+            this.Button_torles.Size = new System.Drawing.Size(75, 23);
+            this.Button_torles.TabIndex = 4;
+            this.Button_torles.Text = "Törlés";
+            this.Button_torles.UseVisualStyleBackColor = true;
+            this.Button_torles.Click += new System.EventHandler(this.Button_torles_Click);
+            // 
             // Form_adatbazis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.Button_torles);
             this.Controls.Add(this.Button_regisztralas);
             this.Controls.Add(this.DateTimePicker_szul_ido);
             this.Controls.Add(this.TextBox_jelszo);
@@ -88,6 +100,7 @@
         private System.Windows.Forms.TextBox TextBox_jelszo;
         private System.Windows.Forms.DateTimePicker DateTimePicker_szul_ido;
         private System.Windows.Forms.Button Button_regisztralas;
+        private System.Windows.Forms.Button Button_torles;
     }
 }
 
