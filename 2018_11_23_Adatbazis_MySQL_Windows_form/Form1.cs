@@ -28,6 +28,17 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
             using (var conn = new MySqlConnection("Server=localhost;Database=regisztracio;Uid=root;Pwd=;")) // Ezzel működik -> using MySql.Data.MySqlClient;
             {
                 conn.Open();
+                // HIBAKEZELÉS -------
+                var ellenorzes = conn.CreateCommand();
+                ellenorzes.CommandText = "SELECT COUNT(*) FROM felhasznalo WHERE felhasznalo_nev = @nev";
+                ellenorzes.Parameters.AddWithValue("@nev", nev);
+                var darab = (long)ellenorzes.ExecuteScalar();
+                if (darab != 0)
+                {
+                    MessageBox.Show("Ez a felhasználó már létezik");
+                    return;
+                }
+                // -------------------
                 var command = conn.CreateCommand();
                 // CommandText -> ez tartalmazza az SQL utasítás
                 command.CommandText = "INSERT INTO felhasznalo (felhasznalo_nev,felhasznalo_jelszo,felhasznalo_reg_datum) VALUES (@nev, @jelszo, @regdatum)";
