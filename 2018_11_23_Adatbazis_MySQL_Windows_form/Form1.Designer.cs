@@ -33,6 +33,7 @@
             this.DateTimePicker_szul_ido = new System.Windows.Forms.DateTimePicker();
             this.Button_regisztralas = new System.Windows.Forms.Button();
             this.Button_torles = new System.Windows.Forms.Button();
+            this.Button_update = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TextBox_nev
@@ -77,11 +78,22 @@
             this.Button_torles.UseVisualStyleBackColor = true;
             this.Button_torles.Click += new System.EventHandler(this.Button_torles_Click);
             // 
+            // Button_update
+            // 
+            this.Button_update.Location = new System.Drawing.Point(100, 179);
+            this.Button_update.Name = "Button_update";
+            this.Button_update.Size = new System.Drawing.Size(75, 23);
+            this.Button_update.TabIndex = 5;
+            this.Button_update.Text = "Update";
+            this.Button_update.UseVisualStyleBackColor = true;
+            this.Button_update.Click += new System.EventHandler(this.Button_update_Click);
+            // 
             // Form_adatbazis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.Button_update);
             this.Controls.Add(this.Button_torles);
             this.Controls.Add(this.Button_regisztralas);
             this.Controls.Add(this.DateTimePicker_szul_ido);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.DateTimePicker DateTimePicker_szul_ido;
         private System.Windows.Forms.Button Button_regisztralas;
         private System.Windows.Forms.Button Button_torles;
+        private System.Windows.Forms.Button Button_update;
     }
 }
 

@@ -76,5 +76,22 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 // --------------------
             }
         }
+
+        private void Button_update_Click(object sender, EventArgs e)
+        {
+            string nev = TextBox_nev.Text;
+            DateTime szuldatum = DateTimePicker_szul_ido.Value;
+            using (var conn = new MySqlConnection("Server=localhost;Database=regisztracio;Uid=root;Pwd=;"))
+            {
+                conn.Open();
+                // UPDATE
+                var Update = conn.CreateCommand();
+                Update.CommandText = "UPDATE felhasznalo SET felhasznalo_reg_datum = @regdatum WHERE felhasznalo_nev = @nev";
+                Update.Parameters.AddWithValue("@regdatum", szuldatum);
+                Update.Parameters.AddWithValue("@nev", nev);
+                int erintettSorok = Update.ExecuteNonQuery();
+                // ------------------
+            }
+        }
     }
 }
