@@ -36,6 +36,7 @@
             this.Button_update = new System.Windows.Forms.Button();
             this.Label_Reg_userek = new System.Windows.Forms.Label();
             this.ListBox_felhasznalok = new System.Windows.Forms.ListBox();
+            this.ListBox_statisztika = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // TextBox_nev
@@ -108,11 +109,20 @@
             this.ListBox_felhasznalok.Size = new System.Drawing.Size(260, 56);
             this.ListBox_felhasznalok.TabIndex = 7;
             // 
+            // ListBox_statisztika
+            // 
+            this.ListBox_statisztika.FormattingEnabled = true;
+            this.ListBox_statisztika.Location = new System.Drawing.Point(12, 266);
+            this.ListBox_statisztika.Name = "ListBox_statisztika";
+            this.ListBox_statisztika.Size = new System.Drawing.Size(260, 56);
+            this.ListBox_statisztika.TabIndex = 8;
+            // 
             // Form_adatbazis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 269);
+            this.ClientSize = new System.Drawing.Size(284, 334);
+            this.Controls.Add(this.ListBox_statisztika);
             this.Controls.Add(this.ListBox_felhasznalok);
             this.Controls.Add(this.Label_Reg_userek);
             this.Controls.Add(this.Button_update);
@@ -138,6 +148,7 @@
         private System.Windows.Forms.Button Button_update;
         private System.Windows.Forms.Label Label_Reg_userek;
         private System.Windows.Forms.ListBox ListBox_felhasznalok;
+        private System.Windows.Forms.ListBox ListBox_statisztika;
     }
 }
 

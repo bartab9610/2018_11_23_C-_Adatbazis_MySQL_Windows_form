@@ -57,11 +57,27 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
             felhasznalok.CommandText = "SELECT felhasznalo_nev, felhasznalo_reg_datum FROM felhasznalo ORDER BY felhasznalo_nev";
             using (var reader = felhasznalok.ExecuteReader())
             {
+                ListBox_felhasznalok.Items.Clear();
                 while (reader.Read())
                 {
                     var nev = reader.GetString("felhasznalo_nev");
                     var datum = reader.GetDateTime("felhasznalo_reg_datum");
-                    ListBox_felhasznalok.Items.Add(String.Format("{0} - {1:yyyy. MM. dd.}", nev, datum));
+                    ListBox_felhasznalok.Items.Add(String.Format("{0:yyyy. MM. dd.} - {1}", datum, nev));
+                }
+            }
+            // -----------------------------
+
+            // EGY NAPON REGISZTRÁLTAK
+            var statisztika = conn.CreateCommand();
+            statisztika.CommandText = "SELECT felhasznalo_reg_datum, COUNT(*) FROM felhasznalo GROUP BY felhasznalo_reg_datum ORDER BY felhasznalo_reg_datum";
+            using (var reader = statisztika.ExecuteReader())
+            {
+                ListBox_statisztika.Items.Clear();
+                while (reader.Read())
+                {
+                    DateTime datum = reader.GetDateTime("felhasznalo_reg_datum");
+                    long hany_darab = reader.GetInt64("COUNT(*)");
+                    ListBox_statisztika.Items.Add(String.Format("{0:yyyy. MM. dd.} - {1} db regisztrált felhasználó", datum, hany_darab));
                 }
             }
             // -----------------------------
