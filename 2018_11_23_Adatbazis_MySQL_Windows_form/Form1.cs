@@ -81,6 +81,26 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 }
             }
             // -----------------------------
+
+            // DATAGRIDVIEW - ADATBÁZIS UPDATE
+            var adapter = new MySqlDataAdapter("SELECT felhasznalo_id, felhasznalo_nev, felhasznalo_reg_datum FROM felhasznalo ORDER BY felhasznalo_nev", conn);
+            var builder = new MySqlCommandBuilder(adapter);
+            var tabla = new DataTable();
+            adapter.Fill(tabla);
+            DataGridView.DataSource = tabla;
+            tabla.RowChanged += (sender, args) =>
+            {
+                long id = (int)args.Row["felhasznalo_id"];
+                string nev = (string)args.Row["felhasznalo_nev"];
+                DateTime reg_datum = (DateTime)args.Row["felhasznalo_reg_datum"];
+                var Update = conn.CreateCommand();
+                Update.CommandText = "UPDATE felhasznalo SET felhasznalo_nev = @nev, felhasznalo_reg_datum = @regdatum WHERE felhasznalo_id = @id";
+                Update.Parameters.AddWithValue("@nev", nev);
+                Update.Parameters.AddWithValue("@regdatum", reg_datum);
+                Update.Parameters.AddWithValue("@id", id);
+                Update.ExecuteNonQuery();
+            };
+            // -------------------------------
         }
         private void Button_regisztralas_Click(object sender, EventArgs e)
         {

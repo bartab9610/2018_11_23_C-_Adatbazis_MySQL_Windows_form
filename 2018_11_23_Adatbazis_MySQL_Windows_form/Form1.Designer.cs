@@ -37,6 +37,8 @@
             this.Label_Reg_userek = new System.Windows.Forms.Label();
             this.ListBox_felhasznalok = new System.Windows.Forms.ListBox();
             this.ListBox_statisztika = new System.Windows.Forms.ListBox();
+            this.DataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // TextBox_nev
@@ -117,11 +119,20 @@
             this.ListBox_statisztika.Size = new System.Drawing.Size(260, 56);
             this.ListBox_statisztika.TabIndex = 8;
             // 
+            // DataGridView
+            // 
+            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView.Location = new System.Drawing.Point(12, 335);
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.Size = new System.Drawing.Size(260, 138);
+            this.DataGridView.TabIndex = 9;
+            // 
             // Form_adatbazis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 334);
+            this.ClientSize = new System.Drawing.Size(284, 488);
+            this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.ListBox_statisztika);
             this.Controls.Add(this.ListBox_felhasznalok);
             this.Controls.Add(this.Label_Reg_userek);
@@ -131,8 +142,10 @@
             this.Controls.Add(this.DateTimePicker_szul_ido);
             this.Controls.Add(this.TextBox_jelszo);
             this.Controls.Add(this.TextBox_nev);
+            this.MinimumSize = new System.Drawing.Size(300, 527);
             this.Name = "Form_adatbazis";
             this.Text = "Adatbázis";
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +162,7 @@
         private System.Windows.Forms.Label Label_Reg_userek;
         private System.Windows.Forms.ListBox ListBox_felhasznalok;
         private System.Windows.Forms.ListBox ListBox_statisztika;
+        private System.Windows.Forms.DataGridView DataGridView;
     }
 }
 
