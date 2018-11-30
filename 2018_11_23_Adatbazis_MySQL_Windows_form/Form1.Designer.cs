@@ -34,6 +34,8 @@
             this.Button_regisztralas = new System.Windows.Forms.Button();
             this.Button_torles = new System.Windows.Forms.Button();
             this.Button_update = new System.Windows.Forms.Button();
+            this.Label_Reg_userek = new System.Windows.Forms.Label();
+            this.ListBox_felhasznalok = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // TextBox_nev
@@ -60,7 +62,7 @@
             // 
             // Button_regisztralas
             // 
-            this.Button_regisztralas.Location = new System.Drawing.Point(36, 135);
+            this.Button_regisztralas.Location = new System.Drawing.Point(12, 128);
             this.Button_regisztralas.Name = "Button_regisztralas";
             this.Button_regisztralas.Size = new System.Drawing.Size(75, 23);
             this.Button_regisztralas.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // Button_torles
             // 
-            this.Button_torles.Location = new System.Drawing.Point(173, 135);
+            this.Button_torles.Location = new System.Drawing.Point(197, 128);
             this.Button_torles.Name = "Button_torles";
             this.Button_torles.Size = new System.Drawing.Size(75, 23);
             this.Button_torles.TabIndex = 4;
@@ -80,7 +82,7 @@
             // 
             // Button_update
             // 
-            this.Button_update.Location = new System.Drawing.Point(100, 179);
+            this.Button_update.Location = new System.Drawing.Point(104, 128);
             this.Button_update.Name = "Button_update";
             this.Button_update.Size = new System.Drawing.Size(75, 23);
             this.Button_update.TabIndex = 5;
@@ -88,11 +90,31 @@
             this.Button_update.UseVisualStyleBackColor = true;
             this.Button_update.Click += new System.EventHandler(this.Button_update_Click);
             // 
+            // Label_Reg_userek
+            // 
+            this.Label_Reg_userek.BackColor = System.Drawing.Color.White;
+            this.Label_Reg_userek.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Label_Reg_userek.Location = new System.Drawing.Point(12, 165);
+            this.Label_Reg_userek.Name = "Label_Reg_userek";
+            this.Label_Reg_userek.Size = new System.Drawing.Size(260, 23);
+            this.Label_Reg_userek.TabIndex = 6;
+            this.Label_Reg_userek.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ListBox_felhasznalok
+            // 
+            this.ListBox_felhasznalok.FormattingEnabled = true;
+            this.ListBox_felhasznalok.Location = new System.Drawing.Point(12, 199);
+            this.ListBox_felhasznalok.Name = "ListBox_felhasznalok";
+            this.ListBox_felhasznalok.Size = new System.Drawing.Size(260, 56);
+            this.ListBox_felhasznalok.TabIndex = 7;
+            // 
             // Form_adatbazis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 269);
+            this.Controls.Add(this.ListBox_felhasznalok);
+            this.Controls.Add(this.Label_Reg_userek);
             this.Controls.Add(this.Button_update);
             this.Controls.Add(this.Button_torles);
             this.Controls.Add(this.Button_regisztralas);
@@ -114,6 +136,8 @@
         private System.Windows.Forms.Button Button_regisztralas;
         private System.Windows.Forms.Button Button_torles;
         private System.Windows.Forms.Button Button_update;
+        private System.Windows.Forms.Label Label_Reg_userek;
+        private System.Windows.Forms.ListBox ListBox_felhasznalok;
     }
 }
 

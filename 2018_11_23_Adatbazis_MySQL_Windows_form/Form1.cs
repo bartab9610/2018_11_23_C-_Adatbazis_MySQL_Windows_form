@@ -34,6 +34,8 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 letrehozas.CommandText = Adatbazis_letrehozas_SQL;
                 letrehozas.ExecuteNonQuery();
                 // --------------------
+
+                Update_reg_userek();
             }
             catch (MySqlException ex)
             {
@@ -41,7 +43,29 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 this.Close();
             }
         }
+        private void Update_reg_userek()
+        {
+            string Kiirando_Szoveg = "Regisztrált {0} db felhasználó";
+            var c = conn.CreateCommand();
+            // CommandText -> ebbe kell beleírni az SQL utasítást!!!!
+            c.CommandText = "SELECT COUNT(*) FROM felhasznalo";
+            long db = (long)c.ExecuteScalar();
+            Label_Reg_userek.Text = String.Format(Kiirando_Szoveg, db); // String.format --> 1. a szöveg 2. a paraméter({} ebbe fűzöm bele a változót)!
 
+            // LISTÁZÁS
+            var felhasznalok = conn.CreateCommand();
+            felhasznalok.CommandText = "SELECT felhasznalo_nev, felhasznalo_reg_datum FROM felhasznalo ORDER BY felhasznalo_nev";
+            using (var reader = felhasznalok.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var nev = reader.GetString("felhasznalo_nev");
+                    var datum = reader.GetDateTime("felhasznalo_reg_datum");
+                    ListBox_felhasznalok.Items.Add(String.Format("{0} - {1:yyyy. MM. dd.}", nev, datum));
+                }
+            }
+            // -----------------------------
+        }
         private void Button_regisztralas_Click(object sender, EventArgs e)
         {
             // Solution -> project(jobb klik) -> Manage NuGET Packages -> Browse -> Installed
@@ -69,6 +93,8 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 command.Parameters.AddWithValue("@jelszo", jelszo);
                 command.Parameters.AddWithValue("@regdatum", szuletesi_datum);
                 int erintettSorok = command.ExecuteNonQuery();
+
+                Update_reg_userek();
                 // -------------------------------
             }
         }
@@ -95,12 +121,14 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                     torles.Parameters.AddWithValue("@nev", nev);
                     int erintettSorok = torles.ExecuteNonQuery();
                     MessageBox.Show("Felhasználó törlésre került!");
+
+                    Update_reg_userek();
                     return;
+
                 }
                 // --------------------
             }
         }
-
         private void Button_update_Click(object sender, EventArgs e)
         {
             string nev = TextBox_nev.Text;
@@ -114,6 +142,8 @@ namespace _2018_11_23_Adatbazis_MySQL_Windows_form
                 Update.Parameters.AddWithValue("@regdatum", szuldatum);
                 Update.Parameters.AddWithValue("@nev", nev);
                 int erintettSorok = Update.ExecuteNonQuery();
+
+                Update_reg_userek();
                 // ------------------
             }
         }
